@@ -25,6 +25,16 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddWeatherCityViewController" {
+           prepareSegueForAddWeatherCityViewController(segue: segue)
+        } else if segue.identifier == "SettingTableViewController" {
+            prepareSegueForSettingTableViewController(segue: segue)
+        }
+        
+        
+    }
+    
+    private func prepareSegueForAddWeatherCityViewController(segue: UIStoryboardSegue) {
         guard let nav = segue.destination as? UINavigationController else {
             fatalError("NavigationController not found")
         }
@@ -34,6 +44,17 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate 
         }
         
         addWeatherCityVC.delegate = self
+    }
+    
+    private func prepareSegueForSettingTableViewController(segue: UIStoryboardSegue) {
+        guard let nav = segue.destination as? UINavigationController else {
+            fatalError("NavigationController not found")
+        }
+        
+        guard let settingsTableVC = nav.viewControllers.first as? SettingsTableViewController else {
+            fatalError("AddWeatherCityViewController not found")
+        }
+        
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,9 +74,8 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate 
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as! WeatherCell
         
         let weatherVM = self.weatherListViewModel.modelAt(indexPath.row)
-        
-        cell.cityNameLabel.text = weatherVM.name
-        cell.temperatureLabel.text = "\(weatherVM.currentTemperature.temperature)°"
+        cell.configure(weatherVM)
+       
         return cell
         
     }
