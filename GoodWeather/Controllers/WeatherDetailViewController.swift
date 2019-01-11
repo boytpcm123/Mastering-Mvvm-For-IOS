@@ -22,14 +22,35 @@ class WeatherDetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        if let weatherVM = weatherViewModel {
-            cityNameLabel.text = weatherVM.name;
-            currentTempLabel.text = weatherVM.currentTemperature.temperature.formatAsDegree
-            maxTempLabel.text = weatherVM.currentTemperature.temperatureMax.formatAsDegree
-            minTempLabel.text = weatherVM.currentTemperature.temperatureMin.formatAsDegree
+//        if let weatherVM = weatherViewModel {
+//            cityNameLabel.text = weatherVM.name.value;
+//            currentTempLabel.text = weatherVM.currentTemperature.temperature.value.formatAsDegree
+//            maxTempLabel.text = weatherVM.currentTemperature.temperatureMax.value.formatAsDegree
+//            minTempLabel.text = weatherVM.currentTemperature.temperatureMin.value.formatAsDegree
+//        }
+        
+        setupVMBindings()
+
+    }
+    
+    private func setupVMBindings() {
+        if let weatherVM = self.weatherViewModel {
+            weatherVM.name.bind{ self.cityNameLabel.text = $0 }
+            weatherVM.currentTemperature.temperature.bind {
+                self.currentTempLabel.text = $0.formatAsDegree
+            }
+            weatherVM.currentTemperature.temperatureMax.bind {
+                self.maxTempLabel.text = $0.formatAsDegree
+            }
+            weatherVM.currentTemperature.temperatureMin.bind {
+                self.minTempLabel.text = $0.formatAsDegree
+            }
+            
+            // Change the value after few seconds
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.weatherViewModel?.name.value = "Boston"
+            }
         }
-        
-        
     }
   
 }
