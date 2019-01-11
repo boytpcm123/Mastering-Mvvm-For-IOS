@@ -55,6 +55,30 @@ struct WeatherListViewModel {
     
 }
 
+// Type Eraser
+class Dynamic<T>: Decodable where T: Decodable {
+    
+    typealias Listener = (T) -> ()
+    var listener: Listener?
+    
+    var value: T {
+        didSet {
+            listener?(value)
+        }
+    }
+    
+    func bind(listener: @escaping Listener) {
+        self.listener = listener
+        self.listener?(self.value)
+    }
+    
+    init(_ value: T) {
+        self.value = value
+    }
+    
+}
+
+
 struct WeatherViewModel: Decodable {
     let name: String
     var currentTemperature: TemperatureViewModel
