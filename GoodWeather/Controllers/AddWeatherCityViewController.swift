@@ -14,13 +14,32 @@ protocol AddWeatherDelegate {
 
 class AddWeatherCityViewController: UIViewController {
     
+    
+    private var addCityViewModel = AddCityViewModel()
+    
+    @IBOutlet weak var cityNameTextField: BindingTextField! {
+        didSet {
+            cityNameTextField.bind { self.addCityViewModel.city = $0 }
+        }
+    }
+    
+    @IBOutlet weak var stateTextField: BindingTextField! {
+        didSet {
+            stateTextField.bind { self.addCityViewModel.state = $0 }
+        }
+    }
+    @IBOutlet weak var zipCodeTextField: BindingTextField! {
+        didSet {
+            zipCodeTextField.bind { self.addCityViewModel.zipCode = $0 }
+        }
+    }
+    
     var delegate: AddWeatherDelegate?
     
-    @IBOutlet weak var cityNameTextField: UITextField!
-    @IBOutlet weak var stateTextField: UITextField!
-    @IBOutlet weak var zipCodeTextField: UITextField!
-    
     @IBAction func saveCityButtonPressed() {
+        
+        print(self.addCityViewModel)
+        
         if let city = cityNameTextField.text {
             let weatherURL = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(city)&APPID=5a1c1b5faf73adc9afcc1517d244b6e7&units=imperial")!
             

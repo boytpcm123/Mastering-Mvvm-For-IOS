@@ -6,24 +6,25 @@
 //  Copyright © 2019 ninjaKID. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class BlindingTextField: UITextField {
+class BindingTextField: UITextField {
     
     var textChangeClosure: (String) -> () = { _ in }
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        commonInit()
     }
     
-    func bind(callBack: @escaping (String) -> ()) {
-        self.textChangeClosure = callBack
+    func bind(callback: @escaping (String) -> ()) {
+        self.textChangeClosure = callback
     }
     
     private func commonInit() {
@@ -31,10 +32,10 @@ class BlindingTextField: UITextField {
     }
     
     @objc func textFieldChange(_ textField: UITextField) {
+        
         if let text = textField.text {
             self.textChangeClosure(text)
         }
-        
     }
-
+    
 }
