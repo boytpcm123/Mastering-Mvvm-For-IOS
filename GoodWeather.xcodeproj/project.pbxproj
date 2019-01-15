@@ -22,6 +22,7 @@
 		59BCD84F21DA5A0300545D87 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59BCD84E21DA5A0300545D87 /* WeatherCell.swift */; };
 		59DDDE5621DB916F001269B6 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DDDE5521DB916F001269B6 /* Webservice.swift */; };
 		59DDDE5921DBA0E2001269B6 /* WeatherListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DDDE5821DBA0E2001269B6 /* WeatherListViewModel.swift */; };
+		858CA29321EB8EB600CCC8ED /* WeatherDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858CA29221EB8EB600CCC8ED /* WeatherDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		59BCD84E21DA5A0300545D87 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		59DDDE5521DB916F001269B6 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		59DDDE5821DBA0E2001269B6 /* WeatherListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListViewModel.swift; sourceTree = "<group>"; };
+		858CA29221EB8EB600CCC8ED /* WeatherDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		59BCD83521DA4BF700545D87 /* GoodWeather */ = {
 			isa = PBXGroup;
 			children = (
+				858CA29121EB8E7A00CCC8ED /* Data Sources */,
 				592CD8F621E75297001C81C0 /* Custom Controls */,
 				5956E03121DCFD7E00A1B5A0 /* Extensions */,
 				59DDDE5721DBA0C5001269B6 /* ViewModels */,
@@ -140,6 +143,14 @@
 				5911E24521E60C9E00EA8E40 /* AddCityViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		858CA29121EB8E7A00CCC8ED /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				858CA29221EB8EB600CCC8ED /* WeatherDataSource.swift */,
+			);
+			path = "Data Sources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +230,7 @@
 				59BCD84C21DA4EE400545D87 /* AddWeatherCityViewController.swift in Sources */,
 				592CD8F821E752C3001C81C0 /* BindingTextField.swift in Sources */,
 				5956E03521DD016D00A1B5A0 /* SettingsTableViewController.swift in Sources */,
+				858CA29321EB8EB600CCC8ED /* WeatherDataSource.swift in Sources */,
 				59BBAB7A21E8813300CA712E /* WeatherDetailViewController.swift in Sources */,
 				5911E24621E60C9E00EA8E40 /* AddCityViewModel.swift in Sources */,
 				59DDDE5921DBA0E2001269B6 /* WeatherListViewModel.swift in Sources */,
