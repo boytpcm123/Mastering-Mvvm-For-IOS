@@ -23,6 +23,7 @@
 		59DDDE5621DB916F001269B6 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DDDE5521DB916F001269B6 /* Webservice.swift */; };
 		59DDDE5921DBA0E2001269B6 /* WeatherListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59DDDE5821DBA0E2001269B6 /* WeatherListViewModel.swift */; };
 		858CA29321EB8EB600CCC8ED /* WeatherDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858CA29221EB8EB600CCC8ED /* WeatherDataSource.swift */; };
+		85EA2E0C21F3189400AE451F /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EA2E0B21F3189400AE451F /* TableViewDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		59DDDE5521DB916F001269B6 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		59DDDE5821DBA0E2001269B6 /* WeatherListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListViewModel.swift; sourceTree = "<group>"; };
 		858CA29221EB8EB600CCC8ED /* WeatherDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataSource.swift; sourceTree = "<group>"; };
+		85EA2E0B21F3189400AE451F /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				858CA29221EB8EB600CCC8ED /* WeatherDataSource.swift */,
+				85EA2E0B21F3189400AE451F /* TableViewDataSource.swift */,
 			);
 			path = "Data Sources";
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 				59DDDE5921DBA0E2001269B6 /* WeatherListViewModel.swift in Sources */,
 				59DDDE5621DB916F001269B6 /* Webservice.swift in Sources */,
 				59BCD83721DA4BF700545D87 /* AppDelegate.swift in Sources */,
+				85EA2E0C21F3189400AE451F /* TableViewDataSource.swift in Sources */,
 				5956E03721DD073600A1B5A0 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

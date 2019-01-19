@@ -24,6 +24,17 @@ extension Unit {
             }
         }
     }
+    
+    var apiName: String {
+        get {
+            switch self {
+            case .celsius:
+                return "metric"
+            case .fahrenheit:
+                return "imperial"
+            }
+        }
+    }
 }
 
 struct SettingsViewModel {
@@ -44,6 +55,7 @@ struct SettingsViewModel {
             userDefaults.set(newValue.rawValue, forKey: "unit")
         }
     }
+    
     
     
 }
