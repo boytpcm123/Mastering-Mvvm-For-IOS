@@ -13,12 +13,14 @@ class TableViewDataSource<CellType, ViewModel>: NSObject, UITableViewDataSource 
     
     
     let cellIdentifier: String
+    let numSections: Int
     var items: [ViewModel]
     let configureCell: (CellType, ViewModel) -> ()
     
-    init(cellIdentifier: String, items: [ViewModel], configureCell: @escaping (CellType, ViewModel) -> ()) {
+    init(cellIdentifier: String, numSections: Int, items: [ViewModel], configureCell: @escaping (CellType, ViewModel) -> ()) {
         
         self.cellIdentifier = cellIdentifier
+        self.numSections = numSections
         self.items = items
         self.configureCell = configureCell
         
@@ -26,6 +28,10 @@ class TableViewDataSource<CellType, ViewModel>: NSObject, UITableViewDataSource 
     
     func updateItems(_ items: [ViewModel]) {
         self.items = items
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return numSections
     }
     
   
