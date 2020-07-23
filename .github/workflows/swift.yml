@@ -11,7 +11,5 @@ jobs:
     - uses: actions/checkout@v1
     - name: Force Xcode 11
       run: sudo xcode-select -switch /Applications/Xcode_11.6.app
-    - name: Run tests
-      run: xcodebuild clean test -project "GoodWeather.xcodeproj" -scheme "GoodWeather" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest"
     - name: Build App
       run: xcodebuild -project "GoodWeather.xcodeproj" -scheme "GoodWeather" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
