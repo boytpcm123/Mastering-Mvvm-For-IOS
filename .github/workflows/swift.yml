@@ -1,22 +1,17 @@
 name: Swift
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push]
 
 jobs:
   build:
 
-    runs-on: macos-latest
+    runs-on: macOS-latest
 
     steps:
-    - uses: actions/checkout@master
-    - name: CD
-      run: cd ../
-    - name: Build
-      run: swift build -v
+    - uses: actions/checkout@v1
+    - name: Force Xcode 11
+      run: sudo xcode-select -switch /Applications/Xcode_11.3.app
     - name: Run tests
-      run: swift test -v
-
+      run: xcodebuild clean test -project "MyApp.xcodeproj" -scheme "MyApp" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max,OS=latest"
+    - name: Build App
+      run: xcodebuild -project "GoodWeather.xcodeproj" -scheme "GoodWeather" -destination "generic/platform=iOS" -configuration Release build CODE_SIGNING_ALLOWED=NO
