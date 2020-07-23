@@ -10,12 +10,11 @@ jobs:
   build:
 
     runs-on: macos-latest
-    strategy:
-    matrix:
-      destination: ['platform=iOS Simulator,OS=13.5,name=iPhone 11 Pro Max']
 
     steps:
     - uses: actions/checkout@master
+    - name: CD
+      run: cd ../
     - name: Build
       run: swift build -v
     - name: Run tests
